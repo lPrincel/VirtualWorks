@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick-Note</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Panel: New Note -->
+        <section class="new-note-panel">
+            <header>
+                <h1>Quick-Note</h1>
+                <p>Capture your thoughts instantly.</p>
+            </header>
+            
+            <div class="input-area">
+                <textarea id="note-input" placeholder="Type your new note here..." rows="8"></textarea>
+                <div class="button-group">
+                    <button id="save-btn" class="btn primary-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        Save Note
+                    </button>
+                    <!-- Hidden save edit button -->
+                    <button id="save-edit-btn" class="btn primary-btn hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        Update Note
+                    </button>
+                    <button id="cancel-edit-btn" class="btn secondary-btn hidden">Cancel</button>
+                </div>
+                <div id="status-message" class="status-message"></div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Saved Notes -->
+        <section class="saved-notes-panel">
+            <header class="notes-header">
+                <h2>Your Saved Notes</h2>
+                <span class="badge" id="notes-counter">0</span>
+            </header>
+            
+            <div class="notes-list" id="notes-list">
+                <!-- Notes will be injected here via JS -->
+                <div class="loading-state" id="loading-state">
+                    Loading notes...
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

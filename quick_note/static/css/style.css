@@ -1,0 +1,310 @@
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-main: #0f172a;
+    --bg-panel: #1e293b;
+    --bg-card: #334155;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #475569;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --success: #10b981;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+}
+
+.app-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 85vh;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    overflow: hidden;
+}
+
+/* Left Panel */
+.new-note-panel {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.02), rgba(0,0,0,0.1));
+}
+
+.new-note-panel header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.new-note-panel header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+textarea {
+    width: 100%;
+    flex: 1;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1.1rem;
+    resize: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+    flex: 1;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+}
+
+.secondary-btn {
+    background: var(--bg-card);
+    color: var(--text-main);
+}
+
+.secondary-btn:hover {
+    background: var(--border);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.status-message {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    min-height: 20px;
+    text-align: center;
+}
+
+.status-success { color: var(--success); }
+.status-error { color: var(--danger); }
+
+/* Right Panel */
+.saved-notes-panel {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.3);
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.notes-header h2 {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.badge {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.notes-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Custom Scrollbar */
+.notes-list::-webkit-scrollbar {
+    width: 6px;
+}
+.notes-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+.notes-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+.notes-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.note-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.05);
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.note-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255,255,255,0.1);
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.note-timestamp {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.note-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.note-card:hover .note-actions {
+    opacity: 1;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-main);
+}
+
+.icon-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+}
+
+.note-content {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.loading-state, .empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 0;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .app-container {
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+    }
+    .new-note-panel {
+        flex: 0 0 350px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    textarea {
+        flex: none;
+        height: 120px;
+    }
+}
