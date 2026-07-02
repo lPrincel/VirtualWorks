@@ -22,7 +22,7 @@ A modern, responsive Single-Page Application (SPA) designed for quickly capturin
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/IPrinceI/VirtualWorks.git
+   git clone https://github.com/lPrincel/VirtualWorks.git
    cd VirtualWorks/quick_note
    ```
 
