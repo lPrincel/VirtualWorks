@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <h1>Create Profile</h1>
+            <p class="subtitle">Fill in your details to generate a stunning profile card.</p>
+            <form method="POST" action="/">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Software developer with a passion for building cool stuff..." required></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="image_url">Profile Image URL</label>
+                    <input type="url" id="image_url" name="image_url" placeholder="https://example.com/avatar.jpg" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Generate Card</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
