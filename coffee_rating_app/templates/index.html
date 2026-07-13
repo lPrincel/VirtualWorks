@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GREAT COFFEE - Rating App</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>THE GREAT COFFEE</h1>
+            <p class="subtitle">- Rating App -</p>
+        </header>
+
+        <main class="coffee-list">
+            {% for coffee in coffees %}
+            <div class="coffee-card" data-id="{{ coffee.coffee_id }}">
+                <div class="coffee-info">
+                    <h2 class="coffee-name">{{ coffee.name }}</h2>
+                    <p class="coffee-description">{{ coffee.description }}</p>
+                </div>
+                <div class="coffee-actions">
+                    <div class="vote-count">
+                        <span class="votes" id="votes-{{ coffee.coffee_id }}">{{ coffee.votes }}</span>
+                        <span class="vote-label">Votes</span>
+                    </div>
+                    <button class="vote-btn" aria-label="Vote for {{ coffee.name }}">
+                        +
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
