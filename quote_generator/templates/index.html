@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Hub</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">QUOTE HUB</h1>
+            <button id="generate-btn" class="primary-btn">GENERATE NEW QUOTE</button>
+        </header>
+
+        <main>
+            <!-- Main Quote Display -->
+            <section class="main-quote-container glass-panel">
+                <div id="loading-spinner" class="spinner hidden"></div>
+                <div id="quote-content">
+                    <p id="main-quote-text" class="quote-text">Click the button above to generate a new quote.</p>
+                    <p id="main-quote-author" class="quote-author"></p>
+                </div>
+            </section>
+
+            <!-- Quote History Section -->
+            <section class="history-section">
+                <h2 class="history-title">QUOTE HISTORY</h2>
+                <div id="history-list" class="history-list">
+                    <!-- History items will be dynamically injected here -->
+                    <div class="history-placeholder">No history available yet.</div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="/static/main.js"></script>
+</body>
+</html>
