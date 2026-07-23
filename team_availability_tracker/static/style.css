@@ -1,0 +1,128 @@
+:root {
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    
+    --avail-bg: #dcfce7;
+    --avail-text: #166534;
+    --avail-dot: #22c55e;
+    
+    --busy-bg: #fee2e2;
+    --busy-text: #991b1b;
+    --busy-dot: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.team-list {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.team-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.team-item:last-child {
+    border-bottom: none;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.user-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.user-role {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.status-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.status-toggle:hover {
+    filter: brightness(0.95);
+    transform: scale(1.02);
+}
+
+.status-toggle:active {
+    transform: scale(0.98);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* State Classes */
+.status-available {
+    background-color: var(--avail-bg);
+    color: var(--avail-text);
+}
+.status-available .status-dot {
+    background-color: var(--avail-dot);
+}
+
+.status-busy {
+    background-color: var(--busy-bg);
+    color: var(--busy-text);
+}
+.status-busy .status-dot {
+    background-color: var(--busy-dot);
+}
